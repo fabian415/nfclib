@@ -48,22 +48,22 @@ dependencies {
 https://fabian415.github.io/nfclib/
 
 ### Source Code
-You can download this project for basic usage
+You can download this project for basic usage from the following link:
 https://github.com/fabian415/nfclib.git
 
 ### Preparation
-**IDE tool:** Android Studio 2021.3.1 or higher
-**Language:** Java
-**EPD Devices:** Advantech EPD-210 / EPD-302 / EPD-303 / EPD-304 Card
+* **IDE tool:** Android Studio 2021.3.1 or higher
+* **Language:** Java
+* **EPD Devices:** Advantech EPD-210 / EPD-302 / EPD-303 / EPD-304 Card
 
 ### Basic Usage
 #### Step Index
-Step 1 ~ 5. **NFC Manager** and **NFC Adapter** initilization
-Step 6. Assign an NFC tag to NFC Manager.
-Step 7. Unlock PIN code and send the draw image command
-Step 8. Reset NFC state
-Step 9. Set a new PIN code
-Step 10. Reset PIN code
+* Step 1 ~ 5. **NFC Manager** and **NFC Adapter** initilization
+* Step 6. Assign an NFC tag to NFC Manager.
+* Step 7. Unlock PIN code and send the draw image command
+* Step 8. Reset NFC state
+* Step 9. Set a new PIN code
+* Step 10. Reset PIN code
 
 #### **Step 1.** Setup the Manifest.xml file.
 Within your **Manifest.xml**, you must provide the `user-permission` for the usage of mobile NFC sensor. In addition, you also need to add the `<intent-filter>` elements with NFC-related actions to specify that your app can handle certain NFC events. These intent filters inform the Android system that your app is capable of processing NFC tags when they are discovered.
