@@ -1,0 +1,5 @@
+com.advantech.nfclib
+com.advantech.nfclib.api
+com.advantech.nfclib.api.cmd
+com.advantech.nfclib.image
+com.advantech.nfclib.utils

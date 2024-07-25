@@ -14,9 +14,11 @@ import java.io.InputStream;
 import java.util.Random;
 
 /**
- * Created by Fabian.Chung on 2024/07/17.
+ * EinkImage
+ *
+ * @author Fabian Chung
+ * @version 1.0.0
  */
-
 public class EinkImage {
 
     private static String TAG = "EinkImage";
@@ -171,6 +173,10 @@ public class EinkImage {
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     };
 
+    /**
+     * Advantech EPD Model.
+     *
+     */
     public enum PanelType {
         EPD210(296, 128, 4736),
         EPD302(416, 240, 24960),
@@ -240,61 +246,17 @@ public class EinkImage {
     private int lz4size;
     private byte[] lz4data;
 
-    public EinkImage(int width, int height, int pages, InputStream inStream) {
-        this.width = width;
-        this.height = height;
-        this.pages = pages;
-
-        data = new byte[width*height/8*pages];  // bw & r (2 pages)
-
-        try {
-//            data = new byte[inStream.available()];
-            inStream.read(data, 0, width*height/8*pages);
-        } catch (IOException e) {
-            data = null;
-        }
-    }
-
-    public EinkImage(int width, int height, int pages, Bitmap bitmap) {
-        this.width = width;
-        this.height = height;
-        this.pages = pages;
-        Matrix matrix = new Matrix();
-
-        if(bitmap.isRecycled()) {
-            bitmap =  Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, false);
-        }
-
-        int count = width*height/8;
-        data = new byte[count*pages];  // bw & r (2 pages)
-        //int index = 0;
-
-        ImageConverter imageConverter = new ImageConverter();
-        if (count == PanelType.EPD210.getSize()) {
-            data = imageConverter.img_forEPD29(bitmap);
-        } else {
-            data = imageConverter.rgb2_forEPD37(imageConverter.img2rgb_forEPD37(bitmap));
-        }
-
-//        for(int j=0;j<width;j++) {
-//            for(int i=0;i<height;i+=8) {
-//                int v = 0;
-//                for(int k=0;k<8;k++) {
-//                    int color = bitmap.getPixel(width-j-1, i+k);
-//                    // convert to BW
-//                    v *= 2;
-//                    if(ConvertPixel(color)) {
-//                        v |= 1;
-//                    }
-//                }
-//                data[index] = (byte) (v&0xFF);
-//                if(pages!=1)
-//                    data[index+count] = data[index];
-//                index++;
-//            }
-//        }
-    }
-
+    /**
+     * EinkImage Constructor
+     *
+     * @param width EPD width
+     * @param height EPD height
+     * @param pages Page to store image
+     * @param bitmap Image content
+     * @param lz4flag LZ4 compression
+     * @param lz4packsize LZ4 pack size
+     * @param type EPD model type
+     */
     public EinkImage(int width, int height, int pages, Bitmap bitmap, int lz4flag, int lz4packsize, PanelType type) {
         Log.d(TAG, "EinkImage: width : ["+width+"]  height : ["+height+"]  pages : ["+pages+"]  lz4flag : ["+lz4flag+"]  lz4packsize : ["+lz4packsize+"] ");
         this.width = width;
@@ -307,18 +269,13 @@ public class EinkImage {
             bitmap =  Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, false);
         }
 
-//        bitmap = imageConverter.resizeImage(bitmap, width, height);
-
         int count = width*height/8;
         data = new byte[count * pages];  // bw & r (2 pages)
         lz4data = new byte[count * pages];
-
-        //int index = 0;
         if (type == PanelType.EPD210) {
             data = imageConverter.img_forEPD29(bitmap);
         } else if (type == PanelType.EPD302) {
             data = imageConverter.rgb2_forEPD37(imageConverter.img2rgb_forEPD37(bitmap));
-//            data = imageConverter.img_forEPD302(bitmap);
         } else if (type == PanelType.EPD303) {
             data = imageConverter.rgb2_forEPD37(imageConverter.img2rgb_forEPD37(bitmap));
         } else if (type == PanelType.EPD304) {
@@ -340,87 +297,18 @@ public class EinkImage {
                 Lz4comp_segment(width, height, pages, lz4packsize);
             }
         }
-
     }
 
-    public EinkImage(int width, int height, int pages) {
-        this.width = width;
-        this.height = height;
-        this.pages = pages;
-
-        int count = width * height / 8;
-        data = new byte[count * pages];  // bw & r (2 pages)
-        for (int i = 0; i < count; i++) {
-            data[i] = 0;
-        }
-    }
-
-    public EinkImage(int width, int height, int pages, EinkImageTemplate type) {
-        this.width = width;
-        this.height = height;
-        this.pages = pages;
-
-        Random rand = new Random();
-
-        int count = width * height / 8;
-        data = new byte[count * pages];  // bw & r (2 pages)
-        int hcount = height / 8;
-
-        for (int i = 0; i < count; i++) {
-            switch (type) {
-                case EINK_IMAGE_BLACK:
-                    data[i] = (byte) 0x00;
-                    if (pages != 1)
-                        data[i + count] = (byte) 0x00;
-                    break;
-
-                case EINK_IMAGE_WHITE:
-                    data[i] = (byte) 0xFF;
-                    if (pages != 1)
-                        data[i + count] = (byte) 0xFF;
-                    break;
-
-                case EINK_IMAGE_RANDOM:
-                    data[i] = (byte) (rand.nextInt(0x100) & 0xFF);
-                    if (pages != 1)
-                        data[i + count] = data[i];
-                    break;
-
-                case EINK_IMAGE_HORIZOTAL_0:
-                    data[i] = (byte) 0x55;
-                    if (pages != 1)
-                        data[i + count] = data[i];
-                    break;
-
-                case EINK_IMAGE_HORIZOTAL_1:
-                    data[i] = (byte) 0xAA;
-                    if (pages != 1)
-                        data[i + count] = data[i];
-                    break;
-
-                case EINK_IMAGE_VERTICAL_0:
-                    if ((i / hcount) % 2 == 0) {
-                        data[i] = (byte) 0xFF;
-                    } else {
-                        data[i] = (byte) 0x00;
-                    }
-                    if (pages != 1)
-                        data[i + count] = data[i];
-                    break;
-
-                case EINK_IMAGE_VERTICAL_1:
-                    if ((i / hcount) % 2 == 1) {
-                        data[i] = (byte) 0xFF;
-                    } else {
-                        data[i] = (byte) 0x00;
-                    }
-                    if (pages != 1)
-                        data[i + count] = data[i];
-                    break;
-            }
-        }
-    }
-
+    /**
+     * EinkImage Constructor
+     *
+     * @param width EPD width
+     * @param height EPD height
+     * @param pages Page to store image
+     * @param type Eink image template type
+     * @param lz4flag LZ4 compression
+     * @param lz4packsize LZ4 pack size
+     */
     public EinkImage(int width, int height, int pages, EinkImageTemplate type, int lz4flag, int lz4packsize) {
         this.width = width;
         this.height = height;
@@ -619,7 +507,7 @@ public class EinkImage {
         }
     }
 
-    public void DrawPixel(int x, int y, int color) {
+    private void DrawPixel(int x, int y, int color) {
         int count = width*height/8;
         int off_y = y / 8;
         int mod_y = y % 8;

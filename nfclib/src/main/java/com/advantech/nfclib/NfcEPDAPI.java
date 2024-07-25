@@ -1,10 +1,6 @@
 package com.advantech.nfclib;
 
 /**
- * Created by User on 2018/1/9.
- */
-
-/**
  * NFC EPD API interface.
  *
  * @author Fabian Chung
