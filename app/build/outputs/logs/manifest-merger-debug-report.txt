@@ -62,13 +62,13 @@ ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest
 	android:name
 		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:6:22-59
 uses-feature#android.hardware.nfc
-ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:5-10:35
+ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:5-81
 	android:required
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:10:9-32
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:55-78
 	android:name
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:9:9-44
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:19-54
 application
-ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:12:5-43:19
+ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:10:5-43:19
 MERGED from [com.google.android.material:material:1.3.0] /Users/fabian/.gradle/caches/transforms-3/b3639cbe0951640ed2ce29bbc475de82/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] /Users/fabian/.gradle/caches/transforms-3/b3639cbe0951640ed2ce29bbc475de82/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/fabian/.gradle/caches/transforms-3/269e4029f92be0f4884805b72f00e70b/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
@@ -80,29 +80,29 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/fabi
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] /Users/fabian/.gradle/caches/transforms-3/c43534b7153f4696badb6805e7a8569d/transformed/core-1.3.1/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:19:9-35
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:17:9-41
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:15:9-41
 	android:fullBackupContent
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:15:9-54
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:13:9-54
 	android:roundIcon
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:18:9-54
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:16:9-54
 	tools:targetApi
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:21:9-29
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:19:9-29
 	android:icon
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:16:9-43
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:20:9-50
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:18:9-50
 	android:dataExtractionRules
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:14:9-65
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:12:9-65
 activity#com.advantech.nfcsampleapp.PinActivity
-ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:22:9-30:20
+ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:20:9-30:20
 	android:exported
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:24:13-36
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:22:13-36
 	android:name
-		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:23:13-40
+		ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:21:13-40
 intent-filter#action:name:android.nfc.action.NDEF_DISCOVERED+action:name:android.nfc.action.TAG_DISCOVERED+action:name:android.nfc.action.TECH_DISCOVERED
 ADDED from /Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:25:13-29:29
 action#android.nfc.action.TECH_DISCOVERED

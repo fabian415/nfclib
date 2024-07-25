@@ -48,8 +48,18 @@ dependencies {
 https://fabian415.github.io/nfclib/
 
 ### Source Code
-You can download this project for basic usage from the following link:
+You can download this sample project from the following link:
 https://github.com/fabian415/nfclib.git
+
+Main Activity Page
+![Screenshot_20240725-113704_NFC Sample App](https://hackmd.io/_uploads/HyshKrytA.jpg)
+
+Push Image Success
+![Screenshot_20240725-113715_NFC Sample App](https://hackmd.io/_uploads/S1kCtHytR.jpg)
+
+Pin Activity Page
+![Screenshot_20240725-113613_NFC Sample App](https://hackmd.io/_uploads/S1hycHkFA.jpg)
+
 
 ### Preparation
 * **IDE tool:** Android Studio 2021.3.1 or higher
@@ -426,7 +436,7 @@ MainActivity.java
 #### **Step 9.** Set a new PIN code. 
 Before you set a new PIN code by using `manager.setPINCode()` method, you need to unlock PIN code first.
 
-PinActivity
+PinActivity.java
 
 ```java=
 ...
@@ -448,7 +458,7 @@ if (result) {
 #### **Step 10.** Reset PIN code. 
 If you forget your new PIN code or ==if you unlock the EPD failed for five times==, it will automatically block the EPD card. Therefore, you have to reset PIN code to default value by using `manager.resetPINCode()` method.
 
-PinActivity
+PinActivity.java
 ```java=
 ...
 // Reset PIN code

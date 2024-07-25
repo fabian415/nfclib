@@ -9,86 +9,88 @@
 8-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="32" />
 9-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml
-10    <!-- normal permissions -->
+10    <!-- normal permission for NFC Tag -->
 11    <uses-permission android:name="android.permission.NFC" />
 11-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:6:5-62
 11-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:6:22-59
-12
+12    <!-- hardware requirement for NFC -->
 13    <uses-feature
-13-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:5-10:35
+13-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:5-81
 14        android:name="android.hardware.nfc"
-14-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:9:9-44
+14-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:19-54
 15        android:required="true" />
-15-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:10:9-32
+15-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:8:55-78
 16
 17    <application
-17-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:12:5-43:19
+17-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:10:5-43:19
 18        android:allowBackup="true"
-18-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:13:9-35
+18-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:11:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 19-->[androidx.core:core:1.3.1] /Users/fabian/.gradle/caches/transforms-3/c43534b7153f4696badb6805e7a8569d/transformed/core-1.3.1/AndroidManifest.xml:24:18-86
 20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:14:9-65
+20-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:12:9-65
 21        android:debuggable="true"
 22        android:fullBackupContent="@xml/backup_rules"
-22-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:15:9-54
+22-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:13:9-54
 23        android:icon="@mipmap/ic_launcher"
-23-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:16:9-43
+23-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:14:9-43
 24        android:label="@string/app_name"
-24-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:17:9-41
+24-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:15:9-41
 25        android:roundIcon="@mipmap/ic_launcher_round"
-25-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:18:9-54
+25-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:16:9-54
 26        android:supportsRtl="true"
-26-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:19:9-35
+26-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:17:9-35
 27        android:testOnly="true"
 28        android:theme="@style/Theme.NFCSampleApp" >
-28-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:20:9-50
+28-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:18:9-50
 29        <activity
-29-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:22:9-30:20
+29-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:20:9-30:20
 30            android:name="com.advantech.nfcsampleapp.PinActivity"
-30-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:23:13-40
+30-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:21:13-40
 31            android:exported="true" >
-31-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:24:13-36
-32            <intent-filter>
-32-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:25:13-29:29
-33                <action android:name="android.nfc.action.TECH_DISCOVERED" />
-33-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:17-77
-33-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:25-74
-34                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-34-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:17-77
-34-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:25-74
-35                <action android:name="android.nfc.action.TAG_DISCOVERED" />
-35-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:17-76
-35-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:25-73
-36            </intent-filter>
-37        </activity>
-38        <activity
-38-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:31:9-42:20
-39            android:name="com.advantech.nfcsampleapp.MainActivity"
-39-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:32:13-41
-40            android:exported="true" >
-40-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:33:13-36
-41            <intent-filter>
-41-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:34:13-41:29
-42                <action android:name="android.intent.action.MAIN" />
-42-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:35:17-69
-42-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:35:25-66
-43
-44                <category android:name="android.intent.category.LAUNCHER" />
-44-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:36:17-77
-44-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:36:27-74
+31-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:22:13-36
+32
+33            <!-- intent filters indicate that this app can process NFC tags -->
+34            <intent-filter>
+34-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:25:13-29:29
+35                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+35-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:17-77
+35-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:25-74
+36                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+36-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:17-77
+36-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:25-74
+37                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+37-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:17-76
+37-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:25-73
+38            </intent-filter>
+39        </activity>
+40        <activity
+40-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:31:9-42:20
+41            android:name="com.advantech.nfcsampleapp.MainActivity"
+41-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:32:13-41
+42            android:exported="true" >
+42-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:33:13-36
+43            <intent-filter>
+43-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:34:13-41:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:35:17-69
+44-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:35:25-66
 45
-46                <action android:name="android.nfc.action.TECH_DISCOVERED" />
-46-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:17-77
-46-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:25-74
-47                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-47-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:17-77
-47-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:25-74
-48                <action android:name="android.nfc.action.TAG_DISCOVERED" />
-48-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:17-76
-48-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:25-73
-49            </intent-filter>
-50        </activity>
-51    </application>
-52
-53</manifest>
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:36:17-77
+46-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:36:27-74
+47                <!-- intent filters indicate that this app can process NFC tags -->
+48                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+48-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:17-77
+48-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:26:25-74
+49                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+49-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:17-77
+49-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:27:25-74
+50                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+50-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:17-76
+50-->/Users/fabian/study/Android/NFCSampleApp/app/src/main/AndroidManifest.xml:28:25-73
+51            </intent-filter>
+52        </activity>
+53    </application>
+54
+55</manifest>

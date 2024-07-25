@@ -7,9 +7,9 @@
     <uses-sdk
         android:minSdkVersion="21"
         android:targetSdkVersion="32" />
-    <!-- normal permissions -->
+    <!-- normal permission for NFC Tag -->
     <uses-permission android:name="android.permission.NFC" />
-
+    <!-- hardware requirement for NFC -->
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="true" />
@@ -29,6 +29,8 @@
         <activity
             android:name="com.advantech.nfcsampleapp.PinActivity"
             android:exported="true" >
+
+            <!-- intent filters indicate that this app can process NFC tags -->
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
@@ -42,7 +44,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
+                <!-- intent filters indicate that this app can process NFC tags -->
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <action android:name="android.nfc.action.TAG_DISCOVERED" />
