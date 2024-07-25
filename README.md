@@ -6,7 +6,7 @@ This is an Android NFC library for communication with Advantech ePaper (EPD) dev
 ### Gradle
 **Step 1.** Add the JitPack repository to your build file. 
 * For users with Gradle version < 6.8
-Add it in your root build.gradle at the end of repositories:
+* Add it in your root build.gradle at the end of repositories:
 ```java=
 allprojects {
     repositories {
@@ -16,7 +16,7 @@ allprojects {
 }
 ```
 * For users with Gradle version >= 6.8
-Add it in your root setting.gradle at the end of repositories:
+* Add it in your root setting.gradle at the end of repositories:
 ```java=
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
