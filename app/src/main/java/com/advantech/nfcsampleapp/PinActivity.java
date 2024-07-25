@@ -20,6 +20,7 @@ import com.advantech.nfclib.NFCException;
 import com.advantech.nfclib.NFCManager;
 import com.advantech.nfclib.utils.CommonUtil;
 
+
 public class PinActivity extends AppCompatActivity implements NFCManager.NFCTagChangeListener {
     private Context context;
     // elements

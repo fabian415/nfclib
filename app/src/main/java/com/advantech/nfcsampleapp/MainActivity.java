@@ -30,6 +30,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.advantech.nfclib.NFCException;
 import com.advantech.nfclib.NFCManager;
 import com.advantech.nfclib.NfcEPDAPI;

@@ -16,4 +16,3 @@ com.advantech.nfcsampleapp-packageDebugResources-14 /Users/fabian/study/Android/
 com.advantech.nfcsampleapp-merged_res-15 /Users/fabian/study/Android/NFCSampleApp/app/build/intermediates/merged_res/debug
 com.advantech.nfcsampleapp-debug-16 /Users/fabian/study/Android/NFCSampleApp/app/src/debug/res
 com.advantech.nfcsampleapp-main-17 /Users/fabian/study/Android/NFCSampleApp/app/src/main/res
-com.advantech.nfcsampleapp-packaged_res-18 /Users/fabian/study/Android/NFCSampleApp/nfclib/build/intermediates/packaged_res/debug
