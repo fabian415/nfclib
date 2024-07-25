@@ -51,14 +51,14 @@ https://fabian415.github.io/nfclib/
 You can download this sample project from the following link:
 https://github.com/fabian415/nfclib.git
 
-Main Activity Page
-![Screenshot_20240725-113704_NFC Sample App](https://hackmd.io/_uploads/HyshKrytA.jpg)
+* Main Activity Page
+![Main Activity Page](./images/image_1.jpg)
 
-Push Image Success
-![Screenshot_20240725-113715_NFC Sample App](https://hackmd.io/_uploads/S1kCtHytR.jpg)
+* Push Image Success
+![Push Image Success](./images/image_2.jpg)
 
-Pin Activity Page
-![Screenshot_20240725-113613_NFC Sample App](https://hackmd.io/_uploads/S1hycHkFA.jpg)
+* Pin Activity Page
+![Pin Activity Page](./images/image_3.jpg)
 
 
 ### Preparation
