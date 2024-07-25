@@ -1,0 +1,115 @@
+// RF Driven FTM transfer (ST25DV)
+
+%start Map1::_0001
+%class NFCState
+%package com.advantech.nfc.api
+%access package
+
+%map Map1
+%%
+
+// State		Transition		End State		Action(s)
+_0001 Entry {
+    S(1, "Init");
+    SetNFCState(NFCState.NFCSTATE.NFCSTATE_NONE);
+    ClearTag();
+    setCommEnable(false);
+} {
+    TagFound        _0100           { T(100, "Found A new Tag"); CreateCommander(); }
+
+    // Events (prevent optimized)
+    Wait            nil             {}      // Wait event, set from SetWaitTimer
+    RxMessage       nil             {}      // RxMessage, trigger when recv message
+    TxMessage       nil             {}      // TxMessage, trigger when send message
+    Exception       nil             {}      // NFC Exception Event
+    Reset           nil             {}      // Reset to init
+    Default         nil             {}
+}
+
+
+_0100 Entry {
+    S(100, "Setup");
+    SetWaitTimer(0, 10);               // wait 100 ms
+    SetNFCState(NFCState.NFCSTATE.NFCSTATE_INIT);
+} {
+    Wait [ ctxt.getWaitIndex() == 0 ]
+                    _0500           { SetupFTM(); }
+
+    Reset           _0001           { T(1, "Reset"); }      // Reset to init
+
+    Default         _0001           { }
+}
+
+_0500 Entry {
+    S(500, "Test Communication");
+    SetNFCState(NFCState.NFCSTATE.NFCSTATE_TEST);
+    CheckMBCtrl();
+    SetWaitTimer(0, 1);
+    SetWaitTimer(1, 50);
+    SetWaitTimer(2, 500);               // wait 5s
+} Exit {
+    ClearAllWaitTimers();
+} {
+    Wait [ ctxt.getWaitIndex() == 0 ]
+                    nil             { CheckMBCtrl(); SetWaitTimer(0, 1); } // Polling MB
+
+    Wait [ ctxt.getWaitIndex() == 1 ]
+                    nil             { TestAPI(); CheckEH(); SetWaitTimer(1, 50);  } // Send Test
+
+    Wait [ ctxt.getWaitIndex() == 2 ]
+                    _0001           { E(1, "NFCAPI didnt send test command"); }
+
+    TxMessage       nil             {
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);
+                                        HandleTxMessage();
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);
+                                    }
+
+    RxMessage       _1000           {
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);
+                                        HandleRxMessage();
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);
+                                    }
+
+    Exception       nil             { E(1, "NFC Exception, reset"); }
+
+    Reset           _0001           { T(1, "Reset"); }      // Reset to init
+
+    Default         _0001           { C("0500 Wrong Event");  }
+}
+
+_1000 Entry {
+    S(1000, "Ready");
+    SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);
+    CheckMBCtrl();
+    SetWaitTimer(0, 1);     //
+    setCommEnable(true);
+} Exit {
+    ClearAllWaitTimers();
+} {
+    TagFound        _0100           { T(100, "Re-Found Tag Again"); CreateCommander(); }
+
+    TxMessage       nil             {
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);
+                                        HandleTxMessage();
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);
+                                    }
+
+    RxMessage       nil             {
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);
+                                        HandleRxMessage();
+                                        SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);
+                                    }
+
+    Wait [ ctxt.getWaitIndex() == 0 ]
+                    nil             { CheckMBCtrl(); SetWaitTimer(0, 1); }
+
+    Exception       _0001           { E(1, "NFC Exception, reset"); }
+
+    Reset           _0001           { T(1, "Reset"); }      // Reset to init
+
+    Default         nil             { C("1000 Wrong Event"); }
+}
+
+
+%%

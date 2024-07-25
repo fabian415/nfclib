@@ -1,0 +1,69 @@
+digraph NFCState {
+
+    node
+        [shape=Mrecord width=1.5];
+
+    subgraph cluster_Map1 {
+
+        label="Map1";
+
+        //
+        // States (Nodes)
+        //
+
+        "Map1::_0001"
+            [label="{_0001|Entry/\l&nbsp;&nbsp;&nbsp;S(1, \"Init\");\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_NONE);\l&nbsp;&nbsp;&nbsp;ClearTag();\l&nbsp;&nbsp;&nbsp;setCommEnable(false);\l|Wait()/\lRxMessage()/\lTxMessage()/\lException()/\lReset()/\lDefault()/\l}"];
+
+        "Map1::_0100"
+            [label="{_0100|Entry/\l&nbsp;&nbsp;&nbsp;S(100, \"Setup\");\l&nbsp;&nbsp;&nbsp;SetWaitTimer(0, 10);\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_INIT);\l}"];
+
+        "Map1::_0500"
+            [label="{_0500|Entry/\l&nbsp;&nbsp;&nbsp;S(500, \"Test Communication\");\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_TEST);\l&nbsp;&nbsp;&nbsp;CheckMBCtrl();\l&nbsp;&nbsp;&nbsp;SetWaitTimer(0, 1);\l&nbsp;&nbsp;&nbsp;SetWaitTimer(1, 50);\l&nbsp;&nbsp;&nbsp;SetWaitTimer(2, 500);\lExit/\l&nbsp;&nbsp;&nbsp;ClearAllWaitTimers();\l|Wait()\l\[ ctxt.getWaitIndex() == 0 \]/\l&nbsp;&nbsp;&nbsp;CheckMBCtrl();\l&nbsp;&nbsp;&nbsp;SetWaitTimer(0, 1);\lWait()\l\[ ctxt.getWaitIndex() == 1 \]/\l&nbsp;&nbsp;&nbsp;TestAPI();\l&nbsp;&nbsp;&nbsp;CheckEH();\l&nbsp;&nbsp;&nbsp;SetWaitTimer(1, 50);\lTxMessage()/\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);\l&nbsp;&nbsp;&nbsp;HandleTxMessage();\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);\lException()/\l&nbsp;&nbsp;&nbsp;E(1, \"NFC Exception, reset\");\l}"];
+
+        "Map1::_1000"
+            [label="{_1000|Entry/\l&nbsp;&nbsp;&nbsp;S(1000, \"Ready\");\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);\l&nbsp;&nbsp;&nbsp;CheckMBCtrl();\l&nbsp;&nbsp;&nbsp;SetWaitTimer(0, 1);\l&nbsp;&nbsp;&nbsp;setCommEnable(true);\lExit/\l&nbsp;&nbsp;&nbsp;ClearAllWaitTimers();\l|TxMessage()/\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);\l&nbsp;&nbsp;&nbsp;HandleTxMessage();\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);\lRxMessage()/\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);\l&nbsp;&nbsp;&nbsp;HandleRxMessage();\l&nbsp;&nbsp;&nbsp;SetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);\lWait()\l\[ ctxt.getWaitIndex() == 0 \]/\l&nbsp;&nbsp;&nbsp;CheckMBCtrl();\l&nbsp;&nbsp;&nbsp;SetWaitTimer(0, 1);\lDefault()/\l&nbsp;&nbsp;&nbsp;C(\"1000 Wrong Event\");\l}"];
+
+        "%start"
+            [label="" shape=circle style=filled fillcolor=black width=0.25];
+
+        //
+        // Transitions (Edges)
+        //
+
+        "Map1::_0001" -> "Map1::_0100"
+            [label="TagFound()/\lT(100, \"Found A new Tag\");\lCreateCommander();\l"];
+
+        "Map1::_0100" -> "Map1::_0500"
+            [label="Wait()\l\[ ctxt.getWaitIndex() == 0 \]/\lSetupFTM();\l"];
+
+        "Map1::_0100" -> "Map1::_0001"
+            [label="Reset()/\lT(1, \"Reset\");\l"];
+
+        "Map1::_0100" -> "Map1::_0001"
+            [label="Default()/\l"];
+
+        "Map1::_0500" -> "Map1::_0001"
+            [label="Wait()\l\[ ctxt.getWaitIndex() == 2 \]/\lE(1, \"NFCAPI didnt send test command\");\l"];
+
+        "Map1::_0500" -> "Map1::_1000"
+            [label="RxMessage()/\lSetNFCState(NFCState.NFCSTATE.NFCSTATE_BUSY);\lHandleRxMessage();\lSetNFCState(NFCState.NFCSTATE.NFCSTATE_READY);\l"];
+
+        "Map1::_0500" -> "Map1::_0001"
+            [label="Reset()/\lT(1, \"Reset\");\l"];
+
+        "Map1::_0500" -> "Map1::_0001"
+            [label="Default()/\lC(\"0500 Wrong Event\");\l"];
+
+        "Map1::_1000" -> "Map1::_0100"
+            [label="TagFound()/\lT(100, \"Re-Found Tag Again\");\lCreateCommander();\l"];
+
+        "Map1::_1000" -> "Map1::_0001"
+            [label="Exception()/\lE(1, \"NFC Exception, reset\");\l"];
+
+        "Map1::_1000" -> "Map1::_0001"
+            [label="Reset()/\lT(1, \"Reset\");\l"];
+
+        "%start" -> "Map1::_0001"
+    }
+
+}

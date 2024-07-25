@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_yellow_led.png.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/yellow_led.png"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_ic_baseline_info_24.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/ic_baseline_info_24.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/xml_data_extraction_rules.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/layout_activity_pin.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/layout/activity_pin.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_green_led.png.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/green_led.png"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_litta_1.png.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/litta_1.png"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_red_led.png.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/red_led.png"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/layout_activity_main.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable_blue_led.png.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/drawable/blue_led.png"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/xml_backup_rules.xml.flat",
+        "source": "com.advantech.nfcsampleapp-main-17:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.advantech.nfcsampleapp-merged_res-15:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.advantech.nfcsampleapp-pngs-10:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    }
+]
