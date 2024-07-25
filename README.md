@@ -45,7 +45,7 @@ dependencies {
 ```
 
 ### JavaDoc
-https://fabian415.github.io/bleeplib/
+https://fabian415.github.io/nfclib/
 
 ### Source Code
 You can download this project for basic usage
